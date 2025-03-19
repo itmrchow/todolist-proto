@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package task;
+
+option go_package = "github.com/itmrchow/todolist-proto/protobuf/task;task";
+
+import "protobuf/base.proto";
+
+service TaskService{
+    rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse) {}
+    rpc FindTask(FindTaskRequest) returns (FindTaskResponse) {}
+    rpc UpdateTask(UpdateTaskRequest) returns (UpdateTaskResponse) {}
+    rpc DeleteTask(DeleteTaskRequest) returns (DeleteTaskResponse) {}
+}
+
+message CreateTaskRequest{
+    string title = 1;
+    string description = 2;
+    string status = 3;
+    string due_date = 4;
+    string user_id = 5;
+}
+
+message CreateTaskResponse{
+    string message = 1;
+}
+
+message FindTaskRequest{
+    protobuf.PageRequest page = 1;
+}
+
+message FindTaskResponse{
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    string status = 4;
+    string due_date = 5;
+}
+
+message UpdateTaskRequest{
+    string id = 1;
+    string title = 2;
+    string description = 3;
+}
+
+message UpdateTaskResponse{
+    string message = 1;
+}
+
+message DeleteTaskRequest{
+    string id = 1;
+}
+
+message DeleteTaskResponse{
+    string message = 1;
+}
+
