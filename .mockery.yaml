@@ -1,0 +1,10 @@
+packages:
+    github.com/itmrchow/todolist-proto/protobuf:
+        config:
+            recursive: true
+            filename: "{{.InterfaceNameSnake}}_mock.go"
+            dir: "{{.InterfaceDir}}"
+            include-regex: ".*Client"
+            inpackage: true
+            # with-expecter: true
+        
