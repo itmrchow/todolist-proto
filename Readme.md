@@ -1,1 +1,4 @@
 # todolist-proto
+
+
+mockery install
